@@ -2,19 +2,45 @@ import './App.css';
 import Banner from './components/Banner/Banner';
 import Navbar from './components/Navbar/Navbar';
 import RowPost from './components/RowPost/RowPost';
-import Test from './components/test/Test';
-import {original,action} from './components/url'
+import {original,action} from './components/url';
+import { createBrowserRouter,Outlet} from 'react-router-dom';
+import Test from './components/test/Test'
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Banner/>
-      <RowPost url={original} title='Netflix originals'/>
-      <RowPost url={action} title='Action' isSmall/>
+      <Outlet/>
       
     </div>
   );
 }
+function Home(){
+  return(
+    <>
+      <Banner/>
+      <RowPost url={original} title='Netflix originals'/>
+      <RowPost url={action} title='Action' isSmall/>
+    </>
+  )
+}
 
-export default App;
+const AppRouter = createBrowserRouter([
+  {
+    path:'/',
+    element:<App/>,
+    children:[
+      {
+        path:'/',
+        element:<Home/>
+      },
+      {
+        path:'/about',
+        element:<Test/>
+      }
+    ]
+  }
+
+])
+
+export default AppRouter;

@@ -1,0 +1,14 @@
+.smallPosterShimmer{
+    background-color: #252323;
+    height: 230px;
+    width: 200px;
+    margin: 10px;
+}
+
+.titleShimmer{
+    margin-left: 10px;
+    height: 2.5rem;
+    width: 15rem;
+    background-color: #252323;
+    border-radius: .5rem;
+}
